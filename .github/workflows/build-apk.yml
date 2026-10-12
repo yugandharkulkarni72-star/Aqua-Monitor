@@ -26,6 +26,9 @@ jobs:
       - name: Get dependencies
         working-directory: project
         run: flutter pub get
+      - name : "org.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8" > gradle.properties
+    echo "org.gradle.daemon=false" >> gradle.properties
+    echo "org.gradle.parallel=false" >> gradle.properties
 
       - name: Build Android APK
         working-directory: project
